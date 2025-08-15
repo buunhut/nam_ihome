@@ -12,14 +12,24 @@ const Portfolio = () => {
   );
   const [filteredProducts, setFilteredProducts] = useState([]);
 
+  const [keyword, setKeyword] = useState("");
+
   // Lấy danh sách category không trùng
   const uniqueCategories = [
     ...new Set(products.flatMap((product) => product.categories)),
   ];
 
+  const handleSearchProduct = (e) => {
+    const { value } = e.target;
+    setKeyword(value);
+  };
+
   useEffect(() => {
+    // Bước 1: lọc theo category
+    let productsAfterCategoryFilter = [];
+
     if (selectedCategory === "All") {
-      // Lọc trùng theo proName (bỏ trùng tên)
+      // Lọc trùng theo ma (bỏ trùng tên)
       const uniqueMap = new Map();
       products.forEach((sp) => {
         const key = sp.ma.trim().toLowerCase();
@@ -27,14 +37,28 @@ const Portfolio = () => {
           uniqueMap.set(key, sp);
         }
       });
-      setFilteredProducts(Array.from(uniqueMap.values()));
+      productsAfterCategoryFilter = Array.from(uniqueMap.values());
     } else {
-      const filtered = products.filter((sp) =>
+      productsAfterCategoryFilter = products.filter((sp) =>
         sp.categories.includes(selectedCategory)
       );
-      setFilteredProducts(filtered);
     }
-  }, [selectedCategory, products]);
+
+    // Bước 2: lọc theo từ khóa
+    if (keyword.trim() !== "") {
+      const lowerKeyword = keyword.toLowerCase();
+      productsAfterCategoryFilter = productsAfterCategoryFilter.filter(
+        (sp) =>
+          sp.proName.toLowerCase().includes(lowerKeyword) ||
+          sp.title?.toLowerCase().includes(lowerKeyword) ||
+          sp.ma.toLowerCase().includes(lowerKeyword) ||
+          sp.giaBan.toLowerCase().includes(lowerKeyword) ||
+          sp.chuNha.toLowerCase().includes(lowerKeyword)
+      );
+    }
+
+    setFilteredProducts(productsAfterCategoryFilter);
+  }, [selectedCategory, products, keyword]);
 
   return (
     <div id="portfolio">
@@ -64,12 +88,22 @@ const Portfolio = () => {
                     selectedCategory === cat ? "3px solid black" : "",
                   color: selectedCategory === cat ? "black" : "",
                 }}
-                onClick={() => dispatch(updateSelectedCategory(cat))}
+                onClick={() => {
+                  dispatch(updateSelectedCategory(cat));
+                }}
               >
                 {cat}
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="searchBar">
+          <input
+            type="text"
+            placeholder="Tìm kiếm,..."
+            onChange={handleSearchProduct}
+          />
         </div>
 
         {/* Products */}

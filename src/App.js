@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import BackToTop from "./components/BackToTop";
 import OverlayMenu from "./components/OverlayMenu";
 import Tool from "./components/Tool";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/tool" element={<Tool />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
       <OverlayMenu />

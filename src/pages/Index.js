@@ -1,16 +1,67 @@
 import React from "react";
 import HomeMenu from "../components/HomeMenu";
 import TopMenu from "../components/TopMenu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Carousel } from "antd";
 
 const Index = () => {
+  const navigate = useNavigate();
   return (
     <div id="index">
-      <TopMenu data={false} />
+      {/* <TopMenu data={true} /> */}
 
-      <video autoPlay muted className="video">
-        <source src={`/img/bannerV.mp4`} type="video/mp4" />
-      </video>
+      <HomeMenu />
+
+      <div className="banner">
+        <Carousel autoplay>
+          <div>
+            <img
+              src="./img/b1.jpg"
+              alt=""
+              onClick={() => {
+                navigate("/portfolio");
+              }}
+            />
+          </div>
+          <div>
+            <img
+              src="./img/b2.jpg"
+              alt=""
+              onClick={() => {
+                navigate("/portfolio");
+              }}
+            />
+          </div>
+          <div>
+            <img
+              src="./img/b3.jpg"
+              alt=""
+              onClick={() => {
+                navigate("/portfolio");
+              }}
+            />
+          </div>
+          <div>
+            <img
+              src="./img/b4.jpg"
+              alt=""
+              onClick={() => {
+                navigate("/portfolio");
+              }}
+            />
+          </div>
+          <div>
+            <img
+              src="./img/b5.jpg"
+              alt=""
+              onClick={() => {
+                navigate("/portfolio");
+              }}
+            />
+          </div>
+        </Carousel>
+      </div>
+
       <div className="welcome">
         <p>welcome to</p>
         <h1>NAM IHOME</h1>

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateOverlay } from "../redux/dataSlice";
+import { updateLogin, updateOverlay } from "../redux/dataSlice";
 import { NavLink } from "react-router-dom";
 
 const OverlayMenu = () => {
@@ -23,6 +23,12 @@ const OverlayMenu = () => {
       document.body.style.overflow = "auto";
     };
   }, [overlay]);
+
+  const { login } = useSelector((state) => state.dataSlice);
+  useEffect(() => {
+    dispatch(updateLogin(localStorage.getItem("login")));
+  }, []);
+
   return (
     <>
       {overlay && (
@@ -40,6 +46,21 @@ const OverlayMenu = () => {
             <li onClick={handleClickClose}>
               <NavLink to={"/contact"}>Liên Hệ</NavLink>
             </li>
+
+            {login && (
+              <li onClick={handleClickClose}>
+                <NavLink
+                  to={"/"}
+                  onClick={() => {
+                    localStorage.removeItem("login");
+                    dispatch(updateLogin(false));
+                  }}
+                >
+                  Logout
+                </NavLink>
+              </li>
+            )}
+
             <li className="iconContact">
               <a
                 href="https://www.facebook.com/NamiHome.Official/"
