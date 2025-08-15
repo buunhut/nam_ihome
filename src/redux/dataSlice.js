@@ -720,7 +720,6 @@ const initialState = {
       allPhoto: ["40.1.jpg", "40.2.jpg", "40.3.jpg", "40.4.jpg"],
       categories: ["Nhà phố", "Biệt thự"],
       chuNha: "0909762672 - Nam",
-
       map: "",
     },
   ],
