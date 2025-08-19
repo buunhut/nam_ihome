@@ -53,7 +53,8 @@ const Portfolio = () => {
           sp.title?.toLowerCase().includes(lowerKeyword) ||
           sp.ma.toLowerCase().includes(lowerKeyword) ||
           sp.giaBan.toLowerCase().includes(lowerKeyword) ||
-          sp.chuNha.toLowerCase().includes(lowerKeyword)
+          sp.chuNha.toLowerCase().includes(lowerKeyword) ||
+          sp.address.toLowerCase().includes(lowerKeyword)
       );
     }
 

@@ -56,7 +56,7 @@ const OverlayMenu = () => {
                     dispatch(updateLogin(false));
                   }}
                 >
-                  Logout
+                  Log out
                 </NavLink>
               </li>
             )}
