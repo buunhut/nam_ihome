@@ -14,9 +14,9 @@ const Footer = () => {
         <li onClick={handleToTop}>
           <NavLink to={"/portfolio"}>Nhà Đất</NavLink>
         </li>
-        <li onClick={handleToTop}>
+        {/* <li onClick={handleToTop}>
           <NavLink to={"/blog"}>Phân Tích</NavLink>
-        </li>
+        </li> */}
         <li onClick={handleToTop}>
           <NavLink to={"/contact"}>Liên Hệ</NavLink>
         </li>

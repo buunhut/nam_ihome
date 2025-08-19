@@ -40,9 +40,9 @@ const OverlayMenu = () => {
             <li onClick={handleClickClose}>
               <NavLink to={"/portfolio"}>Nhà Đất</NavLink>
             </li>
-            <li onClick={handleClickClose}>
+            {/* <li onClick={handleClickClose}>
               <NavLink to={"/blog"}>Phân Tích</NavLink>
-            </li>
+            </li> */}
             <li onClick={handleClickClose}>
               <NavLink to={"/contact"}>Liên Hệ</NavLink>
             </li>
