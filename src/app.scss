@@ -898,6 +898,10 @@ footer {
             width: 100%;
             // background-color: red;
 
+            .searchBar {
+                flex-direction: column;
+            }
+
             .product {
                 padding: 0 10px;
             }
