@@ -850,6 +850,24 @@ const initialState = {
       chuNha: " 0903919461- Chị Mưa",
       map: "",
     },
+    {
+      ma: "50",
+      proName: "NHÀ MẶT TIỀN MỸ GIANG",
+      title: "29 Mỹ Giang 2B,",
+      address: "29 Mỹ Giang 2B, Phường Tăng Nhơn Phú (P.Tân Phú, Quận 7 cũ), TP.HCM",
+      dienTich:"Ngang 11m x Dài 18m, Công nhận 195m², DTS 450m²",
+      ketCau: "3 tầng",
+      giaBan: "80 tỷ",
+      hopDong: " Triệu/tháng",
+      huong: "Tây Nam",
+      phapLy: "Cá nhân",
+      viTri: "Giữa đường Mỹ Giang 2B với Kênh Đào Phú Mỹ Hưng ",
+      allPhoto: ["50.1.jpg", "50.2.jpg", "50.3.jpg", "50.4.jpg"],
+      categories: ["Nhà phố", "Building"],
+      chuNha: " 0909762672- Nam",
+      map: "",
+    },
+
   ],
 };
 
