@@ -11,6 +11,8 @@ import BackToTop from "./components/BackToTop";
 import OverlayMenu from "./components/OverlayMenu";
 import Tool from "./components/Tool";
 import Login from "./pages/Login";
+import BanDo from "./pages/BanDo";
+import AdminUnitConverter from "./pages/AdminUnitConverter";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/portfolio/:ten" element={<Detail />} />
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/map" element={<BanDo />} />
+          <Route path="/convert" element={<AdminUnitConverter />} />
           <Route path="/tool" element={<Tool />} />
           <Route path="/login" element={<Login />} />
         </Route>
